@@ -1,26 +1,35 @@
-<h1>Places You've Been</h1>
+<% if @places.length > 0 %>
+  <div class="jumbotron">
+    <p>
+      Here's where you've been:
+    </p>
 
-<p>
-  Here's where you've been:
-</p>
+    <ul>
+      <% @places.each() do |place| %>
+        <li><%= place.place_name() %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
 
-<ul>
-  <% @places.each() do |place| %>
-    <li><%= place.place_name() %></li>
-  <% end %>
-</ul>
+<div class="row">
+  <div class="col-md-12">
+    <form class="form-inline" action="/success" method="post">
+      <div class="form-group">
+        <label for="place_name">Input a new place</label>
+        <input class="form-control" type="text" name="place_name" id="place_name" placeholder='Try "Walt Disney World"'>
+        <button class="btn btn-default" type="submit">Add to Place List</button>
+      </div>
+    </form>
+  </div>
+</div>
 
-<p>
-  Input a new place:
-</p>
+<br>
 
-<form action="/success" method="post">
-  <label for="place_name">Place Name</label>
-  <input type="text" name="place_name" id="place_name">
-
-  <button type="submit">Add to Place List</button>
-</form>
-
-<form action="/success" method="post">
-  <button type="submit" name="clear_list" value="clicked">Clear Place List</button>
-</form>
+<div class="row">
+  <div class="col-md-12">
+    <form action="/success" method="post">
+      <button class="btn btn-default btn-xs" type="submit" name="clear_list" value="clicked">Clear Place List</button>
+    </form>
+  </div>
+</div>
