@@ -21,3 +21,24 @@ describe('place list render path', {:type => :feature}) do
     expect(page).to(have_content('Moon'))
   end
 end
+
+describe('place list clear path', {:type => :feature}) do
+  it('clears the place list on the index page') do
+    visit('/')
+    fill_in('place_name', :with => "Moon")
+    click_button('Add to Place List')
+    click_link('Back')
+    click_button('Clear Place List')
+    expect(page).to(have_content('Place list cleared'))
+  end
+
+  it('clears the place list on the index page') do
+    visit('/')
+    fill_in('place_name', :with => "Moon")
+    click_button('Add to Place List')
+    click_link('Back')
+    click_button('Clear Place List')
+    click_link('Back')
+    expect(page).not_to(have_content('Moon'))
+  end
+end

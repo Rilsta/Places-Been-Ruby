@@ -1,3 +1,10 @@
-<h1>Your place has been added!</h1>
+<% if @clear_setting == "clicked" %>
+  <h1>Your tracks are covered!</h1>
+  <p>
+    (Place list cleared)
+  </p>
+<% else %>
+  <h1>Your place has been added!</h1>
+<% end %>
 
 <p><a href="/">Back</a></p>
