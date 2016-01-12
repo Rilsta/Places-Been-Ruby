@@ -5,7 +5,9 @@
 </p>
 
 <ul>
-  <!-- Loop that shows place names -->
+  <% @places.each() do |place| %>
+    <li><%= place.place_name() %></li>
+  <% end %>
 </ul>
 
 <p>
