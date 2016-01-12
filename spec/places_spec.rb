@@ -2,6 +2,10 @@ require('rspec')
 require('places')
 
 describe(Place) do
+  before() do
+    Place.clear()
+  end
+
   describe('#place_name') do
     it('lets you give it a place name') do
       test_place = Place.new('Madagascar')
@@ -23,4 +27,11 @@ describe(Place) do
     end
   end
 
+  describe('.clear') do
+    it('empties out all of the saved places') do
+      Place.new("Mauritius").save()
+      Place.clear()
+      expect(Place.all()).to(eq([]))
+    end
+  end
 end
