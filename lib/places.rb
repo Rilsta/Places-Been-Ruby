@@ -6,4 +6,8 @@ class Place
   define_method(:place_name) do
     @place_name
   end
+
+  define_singleton_method(:all) do
+    []
+  end
 end
